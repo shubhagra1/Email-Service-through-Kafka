@@ -1,0 +1,18 @@
+--to start zookeeper which manages kafka env--2181
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+
+--starting the kafka server--9092
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+--create a topic on kafka--9092
+.\bin\windows\kafka-topics.bat --create --topic topic_demo --bootstrap-server localhost:9092
+
+
+--producer connects to specific topic & produces the data--
+.\bin\windows\kafka-console-producer.bat --topic topic_demo --bootstrap-server localhost:9092
+
+
+--consumer subscribes that specific topic and start get data in real time--
+.\bin\windows\kafka-console-consumer.bat --topic topic_demo --from-beginning --bootstrap-server localhost:9092

@@ -1,0 +1,13 @@
+config package
+
+@Configuration
+public class KafkaTopicConfig {
+
+	//creating a new topic with name testTopic,can give custom partitions
+	@Bean
+	public NewTopic myTopic() {
+		return TopicBuilder.name("testTopic")
+				//.partitions(10)
+				.build();
+	}
+}
